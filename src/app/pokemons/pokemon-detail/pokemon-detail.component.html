@@ -1,0 +1,35 @@
+<mat-card *ngIf="pokemonDetail">
+  <button type="button" routerLink="/pokemons" routerLinkActive="router-link-active">Retour</button>
+  <button type="button" routerLink="/login" routerLinkActive="router-link-active">Connexion</button>
+  <button type="button" (click)="addPokemon(pokemonDetail.id)"  >Ajouter</button>
+  <mat-grid-list cols="2" rowHeight=  "2:1">
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+          <div class="image">
+              <img mat-card-lg-image src="../assets/img/official-artwork/{{ pokemonDetail?.id }}.png">
+              <p>No. {{ pokemonDetail?.id | number:'3.0' }}</p>
+          </div>
+      </mat-grid-tile>
+      <mat-grid-tile  [colspan]="1" [rowspan]="1">
+          <mat-list role="list">
+              <mat-list-item role="listitem">{{ pokemonDetail?.name }}<p>&nbsp;</p>
+                  <audio
+                      autoplay
+                      id="audioPokemon"
+                      src="../assets/audio/{{ pokemonDetail?.id }}.mp3">
+                  </audio>
+                  <mat-icon class="audioPlay" onclick="document.getElementById('audioPokemon').play()">play_circle_outline</mat-icon>
+                  </mat-list-item>
+              <mat-list-item role="listitem">
+                  <mat-chip class="typePokemon" *ngFor="let types of pokemonDetail?.types" >&nbsp;{{types}}&nbsp;</mat-chip>
+              </mat-list-item>
+              <mat-list-item role="listitem">Taille: {{ pokemonDetail?.height | number:'1.1' }} m</mat-list-item>
+              <mat-list-item role="listitem">Poids: {{ pokemonDetail?.weight | number:'1.1' }} kg</mat-list-item>
+            </mat-list>
+      </mat-grid-tile>
+      <mat-grid-tile  [colspan]="2" [rowspan]="1"><span>
+          {{ pokemonDetail?.description }}
+      </span></mat-grid-tile>
+  </mat-grid-list>
+
+
+</mat-card>

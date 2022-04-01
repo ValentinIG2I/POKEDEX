@@ -1,0 +1,14 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>
+      <app-pokemon-list></app-pokemon-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <app-pokemon-detail (addPokemonEvent)="addPokemon($event)"></app-pokemon-detail>
+  </div>
+  <p></p>
+  <div class="myTeam">
+      <app-team [input]="pokemonToAdd"></app-team>
+  </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

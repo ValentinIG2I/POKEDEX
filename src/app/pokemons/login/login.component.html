@@ -1,0 +1,10 @@
+<div class="login">
+  <input matInput #searchBox id="emailLogin" placeholder="email" #email>
+  <p></p><p></p><p></p>
+  <input matInput #searchBox id="passwordLogin" [type]="hide ? 'password' : 'text'" placeholder="password" #password>
+  <p></p><p></p><p></p>
+  <button class="loginButton" type="button" (click)="loginButton(email.value, password.value)">
+  Login
+  </button>
+  <p *ngIf="!connexion" class="badLogin">Identification échouée.</p><p></p><p></p>
+</div>

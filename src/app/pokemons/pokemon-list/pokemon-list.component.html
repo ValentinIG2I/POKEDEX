@@ -1,0 +1,7 @@
+<input matInput #searchBox (input)="pokemonSearch(searchBox.value)" placeholder="Search">
+<mat-list [scrollWindow]="false" infinite-scroll (scrolled)="ElderScroll()">
+  <mat-list-item *ngFor="let pokemon of pokemonList" routerLink="/pokemons/detail/{{pokemon.id}}" routerLinkActive="router-link-active" >
+    <img matListAvatar src="../assets/img/sprites/{{ pokemon.id }}.png" alt="Impossible de charger l'image.">
+    <h3 matLine> {{ pokemon.id }}. {{ pokemon.name }} </h3>
+  </mat-list-item>
+</mat-list>

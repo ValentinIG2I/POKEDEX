@@ -1,0 +1,4 @@
+<mat-card *ngFor="let pokemon of idPokemon; let num=index">
+  <button type="button" (click)="supprPokemon(num)"  >Supprimer</button>
+  <img mat-card-lg-image src="../assets/img/official-artwork/{{pokemon}}.png">
+</mat-card>
